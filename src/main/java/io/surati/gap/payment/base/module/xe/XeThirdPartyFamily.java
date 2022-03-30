@@ -1,6 +1,7 @@
+/**
 MIT License
 
-Copyright (c) 2022 GAP
+Copyright (c) 2021 Surati
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,30 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+ */
+package io.surati.gap.payment.base.module.xe;
+
+import io.surati.gap.payment.base.api.ThirdPartyFamily;
+import org.takes.rs.xe.XeDirectives;
+import org.takes.rs.xe.XeWrap;
+import org.xembly.Directives;
+
+public final class XeThirdPartyFamily extends XeWrap {
+	
+	public XeThirdPartyFamily(final ThirdPartyFamily thirdPartyFamily) {
+		this("item", thirdPartyFamily);
+	}
+	
+	public XeThirdPartyFamily(final String name, final ThirdPartyFamily thirdPartyFamily) {
+		super(
+			new XeDirectives(
+				new Directives()
+				.add(name)
+					.add("id").set(thirdPartyFamily.id()).up()
+					.add("code").set(thirdPartyFamily.code()).up()
+					.add("name").set(thirdPartyFamily.name()).up()
+				.up()
+			)
+		);
+	}
+}
