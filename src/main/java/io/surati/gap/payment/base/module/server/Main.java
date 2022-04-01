@@ -23,20 +23,21 @@ SOFTWARE.
  */
 package io.surati.gap.payment.base.module.server;
 
-import com.lightweight.db.LiquibaseDataSource;
 import com.minlessika.db.BasicDatabase;
 import com.minlessika.db.Database;
 import com.minlessika.utils.ConsoleArgs;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import io.surati.gap.admin.module.AdminModule;
-import io.surati.gap.payment.base.db.PaymentDatabaseBuiltWithLiquibase;
+import io.surati.gap.payment.base.db.PaymentBaseDatabaseBuiltWithLiquibase;
 import io.surati.gap.payment.base.module.PaymentBaseModule;
 import io.surati.gap.web.base.FkMimes;
 import io.surati.gap.web.base.TkSafe;
 import io.surati.gap.web.base.TkSafeUserAlert;
 import io.surati.gap.web.base.auth.SCodec;
 import io.surati.gap.web.base.auth.TkAuth;
+import java.util.Map;
+import javax.sql.DataSource;
 import org.apache.commons.lang3.StringUtils;
 import org.takes.facets.auth.Pass;
 import org.takes.facets.auth.PsByFlag;
@@ -50,9 +51,6 @@ import org.takes.facets.forward.TkForward;
 import org.takes.http.Exit;
 import org.takes.http.FtCli;
 import org.takes.tk.TkSlf4j;
-
-import javax.sql.DataSource;
-import java.util.Map;
 
 /**
  * Entry of application.
@@ -87,10 +85,7 @@ public final class Main {
 		configdb.setMaximumPoolSize(psize);
 		final DataSource source = new HikariDataSource(configdb);
 		final Database database = new BasicDatabase(
-			new LiquibaseDataSource(
-				source,
-				PaymentDatabaseBuiltWithLiquibase.CHANGELOG_MASTER_FILENAME
-			)
+			new PaymentBaseDatabaseBuiltWithLiquibase(source)
 		);
 		AdminModule.setup();
 		PaymentBaseModule.setup();
