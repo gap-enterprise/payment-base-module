@@ -7,6 +7,8 @@ import io.surati.gap.payment.base.module.pages.TkPaymentOrderEdit;
 import io.surati.gap.payment.base.module.pages.TkPaymentOrderList;
 import io.surati.gap.payment.base.module.pages.TkPaymentOrderView;
 import io.surati.gap.payment.base.module.pages.TkPaymentView;
+import io.surati.gap.payment.base.module.pages.TkReferenceDocumentEdit;
+import io.surati.gap.payment.base.module.pages.TkReferenceDocumentView;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyEdit;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyList;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyView;
@@ -110,6 +112,20 @@ public final class FkPages extends FkWrap {
 					"/third-party-family/view",
 					new TkSecure(
 						new TkThirdPartyFamilyView(source),
+						source
+					)
+				),
+				new FkRegex(
+					"/reference-document/view",
+					new TkSecure(
+						new TkReferenceDocumentView(source),
+						source
+					)
+				),
+				new FkRegex(
+					"/reference-document/edit",
+					new TkSecure(
+						new TkReferenceDocumentEdit(source),
 						source
 					)
 				)
