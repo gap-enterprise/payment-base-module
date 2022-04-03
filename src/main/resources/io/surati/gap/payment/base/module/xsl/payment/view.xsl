@@ -22,8 +22,8 @@ SOFTWARE.
     <title>
       <xsl:text>GAP - Paiements</xsl:text>
     </title>
-    <link rel="stylesheet" href="/css/print.min.css"/>
-    <link rel="stylesheet" href="/css/toastr.min.css"/>
+    <link rel="stylesheet" href="/io/surati/gap/web/base/css/print.min.css"/>
+    <link rel="stylesheet" href="/io/surati/gap/web/base/css/toastr-2.1.4.min.css"/>
   </xsl:template>
   <xsl:template match="page" mode="header">
     <div class="app-page-title app-page-title-simple">
@@ -293,7 +293,7 @@ SOFTWARE.
     </div>
   </xsl:template>
   <xsl:template match="page" mode="custom-script">
-    <script src="/js/print.min.js"/>
+    <script src="/io/surati/gap/web/base/js/print.min.js"/>
     <script type="text/javascript"><![CDATA[
         var app = angular.module("app", []);
 				                 
