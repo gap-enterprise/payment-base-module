@@ -71,7 +71,6 @@ public final class XePayment extends XeWrap {
 						.add("cancel_reason", item.reasonOfCancel())
 						.add("mean_type", item.meanType().toString())
 						.add("mean_type_id", item.meanType().name())
-						.add("group_id", item.orders().id())
 						.add("cancel_date", item.cancelDate() == LocalDateTime.MIN ? null : item.cancelDate().format(DateTimeFormatter.ISO_DATE_TIME))
 						.add("cancel_date_view", item.cancelDate() == LocalDateTime.MIN ? null : new FrShortDateFormat().convert(item.cancelDate()))
 				)

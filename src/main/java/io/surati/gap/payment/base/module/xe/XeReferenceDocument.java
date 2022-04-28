@@ -27,8 +27,6 @@ public final class XeReferenceDocument extends XeWrap {
 					.add("name").set(String.format("%s N°%s", item.type().toString(), item.reference())).up()
 					.add("amount").set(new FrWYSIWYGAmount(item.amount())).up()
 					.add("amount_in_human").set(new FrAmountInXof(item.amount())).up()
-					.add("advanced_amount").set(new FrWYSIWYGAmount(item.advancedAmount())).up()
-					.add("advanced_amount_in_human").set(new FrAmountInXof(item.advancedAmount())).up()
 					.add("amount_left").set(new FrWYSIWYGAmount(item.amountLeft())).up()
 					.add("amount_paid").set(new FrWYSIWYGAmount(item.amountPaid())).up()
 					.add("amount_left_in_human").set(new FrAmountInXof(item.amountLeft())).up()

@@ -1,7 +1,5 @@
 package io.surati.gap.payment.base.module.server;
 
-import com.minlessika.db.Database;
-import com.minlessika.db.TkTransaction;
 import io.surati.gap.payment.base.module.pages.TkPaymentList;
 import io.surati.gap.payment.base.module.pages.TkPaymentOrderEdit;
 import io.surati.gap.payment.base.module.pages.TkPaymentOrderList;
@@ -10,12 +8,13 @@ import io.surati.gap.payment.base.module.pages.TkPaymentView;
 import io.surati.gap.payment.base.module.pages.TkReferenceDocumentEdit;
 import io.surati.gap.payment.base.module.pages.TkReferenceDocumentView;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyEdit;
-import io.surati.gap.payment.base.module.pages.TkThirdPartyList;
-import io.surati.gap.payment.base.module.pages.TkThirdPartyView;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyFamilyEdit;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyFamilyList;
 import io.surati.gap.payment.base.module.pages.TkThirdPartyFamilyView;
+import io.surati.gap.payment.base.module.pages.TkThirdPartyList;
+import io.surati.gap.payment.base.module.pages.TkThirdPartyView;
 import io.surati.gap.web.base.TkSecure;
+import javax.sql.DataSource;
 import org.takes.facets.fork.FkChain;
 import org.takes.facets.fork.FkRegex;
 import org.takes.facets.fork.FkWrap;
@@ -27,9 +26,7 @@ import org.takes.facets.fork.FkWrap;
  */
 public final class FkPages extends FkWrap {
 
-	public FkPages(
-		final Database source
-	) {
+	public FkPages(final DataSource source) {
 		super(
 			new FkChain(
 				new FkRegex(
@@ -49,10 +46,7 @@ public final class FkPages extends FkWrap {
 				new FkRegex(
 					"/third-party",
 					new TkSecure(
-						new TkTransaction(
-							new TkThirdPartyList(source),
-							source
-						),
+						new TkThirdPartyList(source),
 						source
 					)
 				),
@@ -94,10 +88,7 @@ public final class FkPages extends FkWrap {
 				new FkRegex(
 					"/third-party-family",
 					new TkSecure(
-						new TkTransaction(
-							new TkThirdPartyFamilyList(source),
-							source
-						),
+						new TkThirdPartyFamilyList(source),
 						source
 					)
 				),

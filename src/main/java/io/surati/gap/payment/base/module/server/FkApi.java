@@ -1,11 +1,11 @@
 package io.surati.gap.payment.base.module.server;
 
-import com.minlessika.db.Database;
 import io.surati.gap.payment.base.module.rest.TkPaymentOrderSearch;
 import io.surati.gap.payment.base.module.rest.TkPaymentSearch;
 import io.surati.gap.payment.base.module.rest.TkReferenceDocumentHistorySearch;
 import io.surati.gap.payment.base.module.rest.TkThirdPartySearch;
 import io.surati.gap.web.base.TkSecure;
+import javax.sql.DataSource;
 import org.takes.facets.fork.FkChain;
 import org.takes.facets.fork.FkRegex;
 import org.takes.facets.fork.FkWrap;
@@ -17,7 +17,7 @@ import org.takes.facets.fork.FkWrap;
  */
 public final class FkApi extends FkWrap {
 
-	public FkApi(final Database source) {
+	public FkApi(final DataSource source) {
 		super(
 			new FkChain(
 				new FkRegex(

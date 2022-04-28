@@ -1,7 +1,5 @@
 package io.surati.gap.payment.base.module.server;
 
-import com.minlessika.db.Database;
-import com.minlessika.db.TkTransaction;
 import io.surati.gap.payment.base.module.actions.TkReferenceDocumentDelete;
 import io.surati.gap.payment.base.module.actions.TkReferenceDocumentSave;
 import io.surati.gap.payment.base.module.actions.TkThirdPartyDelete;
@@ -10,7 +8,7 @@ import io.surati.gap.payment.base.module.actions.TkThirdPartyFamilySave;
 import io.surati.gap.payment.base.module.actions.TkThirdPartySave;
 import io.surati.gap.payment.base.module.pages.TkReferenceDocumentHistory;
 import io.surati.gap.web.base.TkSecure;
-import org.takes.facets.auth.Pass;
+import javax.sql.DataSource;
 import org.takes.facets.fork.FkChain;
 import org.takes.facets.fork.FkRegex;
 import org.takes.facets.fork.FkWrap;
@@ -22,19 +20,13 @@ import org.takes.facets.fork.FkWrap;
  */
 public final class FkActions extends FkWrap {
 
-	public FkActions(
-		final Database source,
-		final Pass pass
-	) {
+	public FkActions(final DataSource source) {
 		super(
 			new FkChain(
 				new FkRegex(
 					"/third-party/save",
 					new TkSecure(
-						new TkTransaction(
-							new TkThirdPartySave(source),
-							source
-						),
+						new TkThirdPartySave(source),
 						source
 					)
 				),
@@ -48,10 +40,7 @@ public final class FkActions extends FkWrap {
 				new FkRegex(
 					"/third-party-family/save",
 					new TkSecure(
-						new TkTransaction(
-							new TkThirdPartyFamilySave(source),
-							source
-						),
+						new TkThirdPartyFamilySave(source),
 						source
 					)
 				),
@@ -72,20 +61,14 @@ public final class FkActions extends FkWrap {
 				new FkRegex(
 					"/reference-document/delete",
 					new TkSecure(
-						new TkTransaction(
-							new TkReferenceDocumentDelete(source),
-							source
-						),
+						new TkReferenceDocumentDelete(source),
 						source
 					)
 				),
 				new FkRegex(
 					"/reference-document/save",
 					new TkSecure(
-						new TkTransaction(
-							new TkReferenceDocumentSave(source),
-							source
-						),
+						new TkReferenceDocumentSave(source),
 						source
 					)
 				)

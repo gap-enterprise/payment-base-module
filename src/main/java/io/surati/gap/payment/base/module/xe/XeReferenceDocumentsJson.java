@@ -61,8 +61,6 @@ public final class XeReferenceDocumentsJson implements RsJson.Source {
                 .add("name", String.format("%s N°%s", item.type().toString(), item.reference()))
 				.add("amount", item.amount())
 				.add("amount_in_human", new FrAmountInXof(item.amount()).toString())
-				.add("advanced_amount", item.advancedAmount())
-				.add("advanced_amount_in_human", new FrAmountInXof(item.advancedAmount()).toString())
 				.add("amount_left", item.amountLeft())
 				.add("amount_paid", item.amountPaid())
 				.add("amount_left_in_human", new FrAmountInXof(item.amountLeft()).toString())

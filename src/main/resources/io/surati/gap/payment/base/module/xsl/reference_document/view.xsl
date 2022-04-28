@@ -103,14 +103,6 @@ SOFTWARE.
             </div>
             <div class="col-md-3">
               <h5>
-                <xsl:text>Montant payé antérieurement (avant import)</xsl:text>
-              </h5>
-              <p>
-                <xsl:value-of select="item/advanced_amount_in_human"/>
-              </p>
-            </div>
-            <div class="col-md-3">
-              <h5>
                 <xsl:text>Montant total payé</xsl:text>
               </h5>
               <p>
@@ -234,63 +226,12 @@ SOFTWARE.
               </xsl:if>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card-header">
-                <div class="card-header-title font-size-lg text-capitalize font-weight-normal p-b-1">
-                  <xsl:text>Données compte de gestion </xsl:text>
-                </div>
-              </div>
-              <div class="row p-t-1">
-                <xsl:if test="refdata/document_id">
-                  <div class="col-md-3">
-                    <h5>
-                      <xsl:text>Section</xsl:text>
-                    </h5>
-                    <p>
-                      <xsl:value-of select="refdata/section"/>
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <h5>
-                      <xsl:text>Titre</xsl:text>
-                    </h5>
-                    <p>
-                      <xsl:value-of select="refdata/title"/>
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <h5>
-                      <xsl:text>Liasse</xsl:text>
-                    </h5>
-                    <p>
-                      <xsl:value-of select="refdata/bundle"/>
-                    </p>
-                  </div>
-                  <div class="col-md-3">
-                    <h5>
-                      <xsl:text>Imputation</xsl:text>
-                    </h5>
-                    <p>
-                      <xsl:value-of select="refdata/imputation"/>
-                    </p>
-                  </div>
-                </xsl:if>
-              </div>
-            </div>
-          </div>
           <div class="divider"/>
           <div class="clearfix">
             <a href="{root_page/uri}" class="btn-shadow float-right btn-wide btn-pill btn btn-outline-secondary">
               <xsl:text>Retourner </xsl:text>
               <i class="fa fa-arrow-left"/>
             </a>
-            <xsl:if test="sec:hasAccess(.,'DEFINIR_DONNEES_COMPTE_GESTION_DOC_REF')">
-              <a href="/reference-document/ma-data/edit?document={item/id}&amp;{root_page/full}" class="btn-shadow btn-wide float-right btn-pill mr-1 btn-hover-shine btn btn-primary">
-                <xsl:text>Définir données Compte de gestion </xsl:text>
-                <i class="fa fa-file"/>
-              </a>
-            </xsl:if>
             <xsl:if test="item/step_id='TO_TREAT'">
               <a href="/reference-document/ws-select?id={item/id}&amp;{root_page/full}" class="btn-shadow btn-wide float-right btn-pill mr-1 btn-hover-shine btn btn-primary">
                 <xsl:text>Sélectionner </xsl:text>

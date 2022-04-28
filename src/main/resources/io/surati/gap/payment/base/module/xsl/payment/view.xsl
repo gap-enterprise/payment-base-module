@@ -201,7 +201,7 @@ SOFTWARE.
                     </tr>
                   </thead>
                   <tbody>
-                    <xsl:for-each select="group/payment_orders/payment_order">
+                    <xsl:for-each select="payment_orders/payment_order">
                       <tr>
                         <td class="text-center text-muted" style="width: 80px;">
                           <xsl:value-of select="position()"/>
@@ -213,7 +213,7 @@ SOFTWARE.
                         <td class="text-center">
                           <xsl:value-of select="reference"/>
                         </td>
-                        <xsl:if test="../../../group/is_hetero">
+                        <xsl:if test="../../group/is_hetero">
                           <td class="text-center">
                             <xsl:value-of select="beneficiary"/>
                           </td>
@@ -227,9 +227,9 @@ SOFTWARE.
                           </div>
                         </td>
                         <td class="text-center">
-                          <xsl:if test="../../../sec:hasAccess(.,'VISUALISER_ORDRES_PAIEMENT') or ../../../sec:hasAccess(.,'PREPARER_ORDRES_PAIEMENT') or ../../../sec:hasAccess(.,'AUTORISER_ORDRES_PAIEMENT')">
+                          <xsl:if test="../../sec:hasAccess(.,'VISUALISER_ORDRES_PAIEMENT') or ../../sec:hasAccess(.,'PREPARER_ORDRES_PAIEMENT') or ../../sec:hasAccess(.,'AUTORISER_ORDRES_PAIEMENT')">
                             <div role="group" class="btn-group-sm btn-group">
-                              <button class="btn-shadow btn btn-primary" onclick="location.href='/payment-order/view?id={id}&amp;{../../../current_page/full}'">Voir</button>
+                              <button class="btn-shadow btn btn-primary" onclick="location.href='/payment-order/view?id={id}&amp;{../../current_page/full}'">Voir</button>
                             </div>
                           </xsl:if>
                         </td>

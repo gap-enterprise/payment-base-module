@@ -48,27 +48,28 @@ public enum PaymentBaseModule implements Module {
 		Menu.VALUES.add(
 			new SimpleMenu(
 				800,
+				"history",
 				"lnr-history",
 				"Historique",
 				"bg-warning",
 				"Explorer vos données de production",
 				new IterableOf<>(
 					new SimpleSubmenu(
-						1, "lnr-pointer-left", "Ordres de paiement", "/payment-order",
+						1, "orders", "lnr-pointer-left", "Ordres de paiement", "/payment-order",
 						new IterableOf<>(
 							PaymentBaseAccess.VISUALISER_ORDRES_PAIEMENT
 						),
 						false
 					),
 					new SimpleSubmenu(
-						2, "lnr-diamond", "Paiements", "/payment/list",
+						2, "payment", "lnr-diamond", "Paiements", "/payment/list",
 						new IterableOf<>(
 							PaymentBaseAccess.VISUALISER_PAIEMENTS
 						),
 						false
 					),
 					new SimpleSubmenu(
-						3, "lnr-briefcase", "Documents de référence", "/reference-document/history",
+						3, "reference-document", "lnr-briefcase", "Documents de référence", "/reference-document/history",
 						new IterableOf<>(
 							PaymentBaseAccess.VISUALISER_DOCUMENT_REF,
 							PaymentBaseAccess.EDITER_DOCUMENT_REF
@@ -81,13 +82,14 @@ public enum PaymentBaseModule implements Module {
 		Menu.VALUES.add(
 			new SimpleMenu(
 				900,
+				"settings",
 				"lnr-cog",
 				"Paramétrage",
 				"bg-info",
 				"Paramétrer vos données de base",
 				new IterableOf<>(
 					new SimpleSubmenu(
-						1, "lnr-users", "Tiers", "/third-party",
+						1, "third-party", "lnr-users", "Tiers", "/third-party",
 						new IterableOf<>(
 							PaymentBaseAccess.VISUALISER_TIERS,
 							PaymentBaseAccess.CONFIGURER_TIERS
@@ -95,7 +97,7 @@ public enum PaymentBaseModule implements Module {
 						false
 					),
 					new SimpleSubmenu(
-						2, "lnr-database", "Familles de tiers", "/third-party-family",
+						2, "third-party-family", "lnr-database", "Familles de tiers", "/third-party-family",
 						new IterableOf<>(
 							PaymentBaseAccess.VISUALISER_TIERS,
 							PaymentBaseAccess.CONFIGURER_TIERS

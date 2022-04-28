@@ -173,7 +173,7 @@ SOFTWARE.
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>web-base</artifactId>
-      <version>0.7.2</version>
+      <version>0.8.4</version>
     </dependency>
     <dependency>
       <groupId>net.sourceforge.saxon</groupId>
@@ -191,17 +191,17 @@ SOFTWARE.
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>admin-base</artifactId>
-      <version>0.5.4</version>
+      <version>0.5.6</version>
     </dependency>
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>payment-base</artifactId>
-      <version>0.2.0</version>
+      <version>0.3.1-alpha.6</version>
     </dependency>
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>admin-module</artifactId>
-      <version>0.4.5</version>
+      <version>0.4.8</version>
     </dependency>
   </dependencies>
   <build>
@@ -301,12 +301,10 @@ SOFTWARE.
               <cleanupDaemonThreads>false</cleanupDaemonThreads>
               <arguments>
                 <argument>--port=${port}</argument>
-                <argument>--driver=org.postgresql.Driver</argument>
-                <argument>--db-host=${pgsql.host}</argument>
-                <argument>--db-name=${pgsql.dbname}</argument>
-                <argument>--db-port=${pgsql.port}</argument>
-                <argument>--db-user=${pgsql.user}</argument>
-                <argument>--db-password=${pgsql.password}</argument>
+                <argument>--db-driver=${db.driver}</argument>
+                <argument>--db-url=${db.url}</argument>
+                <argument>--db-user=${db.user}</argument>
+                <argument>--db-password=${db.password}</argument>
                 <argument>--hit-refresh</argument>
               </arguments>
             </configuration>
