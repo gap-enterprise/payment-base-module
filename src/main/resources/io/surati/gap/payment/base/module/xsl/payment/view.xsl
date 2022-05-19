@@ -242,51 +242,53 @@ SOFTWARE.
           </div>
           <div class="divider"/>
           <div class="clearfix">
-            <xsl:if test="sec:hasAccess(.,'EXECUTER_ORDRES_PAIEMENT')">
-              <xsl:if test="item/status_id='TO_PRINT'">
+            <xsl:if test="not(item/mean_type_id='ANONYMOUS')">
+              <xsl:if test="sec:hasAccess(.,'EXECUTER_ORDRES_PAIEMENT')">
+                <xsl:if test="item/status_id='TO_PRINT'">
               
               </xsl:if>
-              <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary" ng-click="printNote()" ng-class="{{disabled: loadingData}}" href="javascript:void(0)">
-                <xsl:text>Imprimer formule </xsl:text>
-                <i class="fa fa-print"/>
-              </a>
-              <xsl:if test="item/status_id='TO_PRINT'">
-              
-              </xsl:if>
-              <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary mr-1" ng-class="{{disabled: loadingData}}" ng-click="printPaymentResume()" href="javascript:void(0)">
-                <xsl:text>Imprimer bordereau </xsl:text>
-                <i class="fa fa-print"/>
-              </a>
-              <xsl:if test="not(item/mean_type_id='CHEQUE') and item/status_id='TO_PRINT'">
-
-              </xsl:if>
-              <xsl:if test="not(item/mean_type_id='CHEQUE')">
-                <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary mr-1" ng-click="printLetter()" ng-class="{{disabled: loadingData}}" href="javascript:void(0)">
-                  <xsl:text>Imprimer lettre </xsl:text>
+                <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary" ng-click="printNote()" ng-class="{{disabled: loadingData}}" href="javascript:void(0)">
+                  <xsl:text>Imprimer formule </xsl:text>
                   <i class="fa fa-print"/>
                 </a>
+                <xsl:if test="item/status_id='TO_PRINT'">
+              
               </xsl:if>
-            </xsl:if>
-            <xsl:if test="sec:hasAccess(.,'ANNULER_PAIEMENTS')">
-              <xsl:if test="item/status_id='ISSUED' or item/status_id='TO_PRINT'">
-                <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-danger mr-1" href="/payment/cancel/edit?id={item/id}&amp;{root_page/full}">
-                  <xsl:text>Annuler </xsl:text>
-                  <i class="fa fa-minus-circle"/>
+                <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary mr-1" ng-class="{{disabled: loadingData}}" ng-click="printPaymentResume()" href="javascript:void(0)">
+                  <xsl:text>Imprimer bordereau </xsl:text>
+                  <i class="fa fa-print"/>
                 </a>
+                <xsl:if test="not(item/mean_type_id='CHEQUE') and item/status_id='TO_PRINT'">
+
+              </xsl:if>
+                <xsl:if test="not(item/mean_type_id='CHEQUE')">
+                  <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-primary mr-1" ng-click="printLetter()" ng-class="{{disabled: loadingData}}" href="javascript:void(0)">
+                    <xsl:text>Imprimer lettre </xsl:text>
+                    <i class="fa fa-print"/>
+                  </a>
+                </xsl:if>
+              </xsl:if>
+              <xsl:if test="sec:hasAccess(.,'ANNULER_PAIEMENTS')">
+                <xsl:if test="item/status_id='ISSUED' or item/status_id='TO_PRINT'">
+                  <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-danger mr-1" href="/payment/cancel/edit?id={item/id}&amp;{root_page/full}">
+                    <xsl:text>Annuler </xsl:text>
+                    <i class="fa fa-minus-circle"/>
+                  </a>
+                </xsl:if>
+              </xsl:if>
+              <xsl:if test="sec:hasAccess(.,'EXECUTER_ORDRES_PAIEMENT')">
+                <xsl:if test="item/status_id='TO_PRINT'">
+                  <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-success mr-1" href="/payment/finalize?id={item/id}&amp;{root_page/full}" onclick="return confirm('Voulez-vous finaliser ce paiement ?');">
+                    <xsl:text>Finaliser </xsl:text>
+                    <i class="fa fa-check"/>
+                  </a>
+                </xsl:if>
               </xsl:if>
             </xsl:if>
-            <xsl:if test="sec:hasAccess(.,'EXECUTER_ORDRES_PAIEMENT')">
-              <xsl:if test="item/status_id='TO_PRINT'">
-                <a class="btn-shadow btn-wide float-right btn-pill btn-hover-shine btn btn-success mr-1" href="/payment/finalize?id={item/id}&amp;{root_page/full}" onclick="return confirm('Voulez-vous finaliser ce paiement ?');">
-                  <xsl:text>Finaliser </xsl:text>
-                  <i class="fa fa-check"/>
-                </a>
-              </xsl:if>
-              <a class="btn-shadow float-right btn-wide btn-pill mr-1 btn btn-outline-secondary" href="{root_page/uri}">
-                <xsl:text>Retourner </xsl:text>
-                <i class="fa fa-arrow-left"/>
-              </a>
-            </xsl:if>
+            <a class="btn-shadow float-right btn-wide btn-pill mr-1 btn btn-outline-secondary" href="{root_page/uri}">
+              <xsl:text>Retourner </xsl:text>
+              <i class="fa fa-arrow-left"/>
+            </a>
           </div>
         </div>
       </div>
