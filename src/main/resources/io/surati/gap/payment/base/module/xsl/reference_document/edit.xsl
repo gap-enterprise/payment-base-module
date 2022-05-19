@@ -250,7 +250,7 @@ SOFTWARE.
     </div>
   </xsl:template>
   <xsl:template match="page" mode="custom-script">
-    <script src="/js/select2.js"/>
+    <script src="/io/surati/gap/web/base/js/select2.js"/>
     <script type="text/javascript"><![CDATA[
     	  $('select').select2({
 		    theme: 'bootstrap4',

@@ -91,7 +91,7 @@ public final class TkReferenceDocumentSave implements Take {
 			final ThirdPartyReferenceDocuments documents = new DbThirdPartyReferenceDocuments(this.source, tp);
 			item = documents.add(date, type, reference, amount, docobject, docplace, user);
 			msg = "Le document de référence a été créé avec succès !";
-			log.info("Ajout du document de référence (N°=%s) du tiers (Code=%s)", item.reference(), item.issuer().code());
+			log.info("Ajout du document de référence (N°=%s) du tiers (Code=%s)", item.reference(), item.beneficiary().code());
 		} else {
 			item = new DbPaginedReferenceDocuments(this.source).get(id);
 			item.update(docdate, reference, docobject, docplace);
@@ -99,7 +99,7 @@ public final class TkReferenceDocumentSave implements Take {
 			item.update(docdepositdate, docentrydate);
 			item.type(type);
 			msg = "Le document de référence a été modifié avec succès !";
-			log.info("Mise à jour du document de référence (N°=%s) du tiers (Code=%s)", item.reference(), item.issuer().code());
+			log.info("Mise à jour du document de référence (N°=%s) du tiers (Code=%s)", item.reference(), item.beneficiary().code());
 		}
 		if(item.status() == ReferenceDocumentStatus.WAITING_FOR_PAYMENT) {
 			item.type(type);

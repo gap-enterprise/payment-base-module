@@ -80,9 +80,10 @@ public final class XeReferenceDocumentsJson implements RsJson.Source {
 				.add("type_id", item.type().name())
 				.add("step", item.step().toString())
 				.add("step_id", item.step().name())
-				.add("beneficiary", item.issuer().name())
-				.add("abbreviated", item.issuer().abbreviated())
-				.add("code", item.issuer().code())
+				.add("beneficiary", item.beneficiary().name())
+				.add("abbreviated", item.beneficiary().abbreviated())
+				.add("code", item.beneficiary().code())
+				.add("advanced_amount", item.priorAmountPaid())
            );
 		}
 		return builder.build();

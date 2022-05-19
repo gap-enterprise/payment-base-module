@@ -37,7 +37,7 @@ public final class TkReferenceDocumentDelete implements Take {
 		final Long id = Long.parseLong(new RqHref.Smart(req).single("id"));
 		final ReferenceDocuments items = new DbPaginedReferenceDocuments(this.source);
 		final ReferenceDocument item = items.get(id);
-		log.info("Suppression du document de référence (N°=%s) du Tiers (Code=%s)", item.reference(), item.issuer().code());
+		log.info("Suppression du document de référence (N°=%s) du Tiers (Code=%s)", item.reference(), item.beneficiary().code());
 		items.remove(item);
 		return new RsForward(
 			new RsFlash(
