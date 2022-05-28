@@ -24,17 +24,17 @@ public final class PaymentBasePlugin extends Plugin {
 
     @Override
     public void start() {
-        System.out.println("Starting Payment base plugin...");
+        System.out.println("Starting Payment base module...");
     }
 
     @Override
     public void stop() {
-        System.out.println("Stopping Payment base plugin...");
+        System.out.println("Stopping Payment base module...");
     }
 
     @Override
     public void delete() {
-        System.out.println("Deleting Payment base plugin...");
+        System.out.println("Deleting Payment base module...");
     }
 
     @Extension
