@@ -63,6 +63,7 @@ SOFTWARE.
   </scm>
   <properties>
     <jooq.version>3.14.15</jooq.version>
+    <admin.module.version>0.5.1</admin.module.version>
   </properties>
   <dependencies>
     <dependency>
@@ -173,7 +174,7 @@ SOFTWARE.
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>web-base</artifactId>
-      <version>0.8.4</version>
+      <version>0.8.5</version>
     </dependency>
     <dependency>
       <groupId>net.sourceforge.saxon</groupId>
@@ -201,7 +202,13 @@ SOFTWARE.
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>admin-module</artifactId>
-      <version>0.4.8</version>
+      <version>${admin.module.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.pf4j</groupId>
+      <artifactId>pf4j</artifactId>
+      <version>3.6.0</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
@@ -215,6 +222,27 @@ SOFTWARE.
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <version>3.2.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            </manifest>
+            <manifestEntries>
+              <Plugin-Id>payment-base-module</Plugin-Id>
+              <Plugin-Version>${project.version}</Plugin-Version>
+              <Plugin-Provider>Surati</Plugin-Provider>
+              <Plugin-Class>io.surati.gap.payment.base.module.PaymentBasePlugin</Plugin-Class>
+              <Plugin-License>Surati License</Plugin-License>
+              <Plugin-Dependencies>admin-module@${admin.module.version}</Plugin-Dependencies>
+            </manifestEntries>
+          </archive>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>

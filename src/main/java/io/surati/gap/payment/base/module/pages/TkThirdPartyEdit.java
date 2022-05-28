@@ -28,7 +28,7 @@ import io.surati.gap.payment.base.db.DbThirdParties;
 import io.surati.gap.payment.base.db.DbThirdPartyFamilies;
 import io.surati.gap.payment.base.module.xe.XeThirdParty;
 import io.surati.gap.payment.base.module.xe.XeThirdPartyFamilies;
-import io.surati.gap.web.base.RsPage;
+import io.surati.gap.payment.base.module.server.RsPage;
 import org.cactoos.collection.Sticky;
 import org.takes.Request;
 import org.takes.Response;

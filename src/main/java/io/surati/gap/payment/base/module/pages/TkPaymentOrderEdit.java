@@ -29,7 +29,7 @@ import io.surati.gap.payment.base.db.DbThirdParties;
 import io.surati.gap.payment.base.module.xe.XePaymentOrder;
 import io.surati.gap.payment.base.module.xe.XeReferenceDocumentTypes;
 import io.surati.gap.payment.base.module.xe.XeThirdParties;
-import io.surati.gap.web.base.RsPage;
+import io.surati.gap.payment.base.module.server.RsPage;
 import io.surati.gap.web.base.xe.XeRootPage;
 import org.cactoos.collection.Sticky;
 import org.takes.Request;
