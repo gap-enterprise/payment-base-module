@@ -63,7 +63,6 @@ SOFTWARE.
   </scm>
   <properties>
     <jooq.version>3.14.15</jooq.version>
-    <admin.module.version>0.5.1</admin.module.version>
   </properties>
   <dependencies>
     <dependency>
@@ -202,7 +201,7 @@ SOFTWARE.
     <dependency>
       <groupId>io.surati.gap</groupId>
       <artifactId>admin-module</artifactId>
-      <version>${admin.module.version}</version>
+      <version>0.5.1</version>
     </dependency>
     <dependency>
       <groupId>org.pf4j</groupId>
@@ -239,7 +238,7 @@ SOFTWARE.
               <Plugin-Provider>Surati</Plugin-Provider>
               <Plugin-Class>io.surati.gap.payment.base.module.PaymentBasePlugin</Plugin-Class>
               <Plugin-License>Surati License</Plugin-License>
-              <Plugin-Dependencies>admin-module@${admin.module.version}</Plugin-Dependencies>
+              <Plugin-Dependencies>admin-module</Plugin-Dependencies>
             </manifestEntries>
           </archive>
         </configuration>
