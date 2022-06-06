@@ -23,8 +23,6 @@ import io.surati.gap.web.base.menu.SimpleMenu;
 import io.surati.gap.web.base.menu.SimpleSubmenu;
 import org.cactoos.iterable.IterableOf;
 
-import java.util.Arrays;
-
 /**
  * Admin module.
  *
@@ -38,10 +36,8 @@ public enum PaymentBaseModule implements Module {
 	);
 
 	public static void setup() {
-		for (final Module mod : PaymentBaseModule.values()) {
-			Module.VALUES.add(mod);
-			Module.BY_CODE.put(mod.code(), mod);
-		}
+		Module.VALUES.add(PaymentBaseModule.PAYMENT_BASE);
+		Module.BY_CODE.put(PaymentBaseModule.PAYMENT_BASE.code(), PaymentBaseModule.PAYMENT_BASE);
 		for (final DashboardMenu dmenu : PaymentBaseDashboardMenu.values()) {
 			DashboardMenu.VALUES.add(dmenu);
 		}
