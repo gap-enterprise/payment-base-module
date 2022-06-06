@@ -25,6 +25,9 @@ package io.surati.gap.payment.base.module.pages;
 
 import io.surati.gap.payment.base.api.ThirdParty;
 import io.surati.gap.payment.base.db.DbThirdParties;
+import io.surati.gap.payment.base.db.DbThirdPartyBankAccounts;
+import io.surati.gap.payment.base.module.xe.XeBankAccounts;
+import io.surati.gap.payment.base.module.xe.XePaymentMeanTypes;
 import io.surati.gap.payment.base.module.xe.XeThirdParty;
 import io.surati.gap.payment.base.module.server.RsPage;
 import org.cactoos.collection.Sticky;
@@ -65,7 +68,9 @@ public final class TkThirdPartyView implements Take {
 		final Long id = Long.parseLong(new RqHref.Smart(req).single("id"));
 		final ThirdParty item = new DbThirdParties(this.source).get(id);
 		final XeSource src = new XeChain(
-			new XeThirdParty(item)
+			new XeBankAccounts(new DbThirdPartyBankAccounts(this.source, item)),
+			new XeThirdParty(item),
+			new XePaymentMeanTypes(item.paymentCondition().meanTypesAllowed())
 		);
 		return new RsPage(
 			"/io/surati/gap/payment/base/module/xsl/third_party/view.xsl",
