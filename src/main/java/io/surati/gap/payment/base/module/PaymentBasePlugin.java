@@ -37,7 +37,7 @@ public final class PaymentBasePlugin extends Plugin {
         System.out.println("Deleting Payment base module...");
     }
 
-    @Extension
+    @Extension(ordinal = 2)
     public static final class PaymentBaseRegistration implements ModuleRegistration {
 
         @Override
@@ -46,7 +46,7 @@ public final class PaymentBasePlugin extends Plugin {
         }
     }
 
-    @Extension
+    @Extension(ordinal = 2)
     public static final class PaymentBaseDatabaseSetup implements DatabaseSetup {
 
         @Override
@@ -59,7 +59,7 @@ public final class PaymentBasePlugin extends Plugin {
         }
     }
 
-    @Extension
+    @Extension(ordinal = 2)
     public static final class PaymentBaseWebFront implements WebFront {
 
         @Override
